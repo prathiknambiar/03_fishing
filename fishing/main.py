@@ -23,6 +23,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    engine.hook.start_cast()
 
         engine.update()
         engine.draw(screen, font)

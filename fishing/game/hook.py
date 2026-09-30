@@ -24,9 +24,9 @@ class Hook:
         self.state = IDLE
 
     def start_cast(self):
-        self.state = CASTING
-        self.y = self.surface_y
-
+        if self.state == IDLE:
+            self.state = CASTING
+            
     def update(self):
         if self.state == CASTING:
             self.y += self.speed
