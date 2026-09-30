@@ -24,9 +24,11 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_SPACE and engine.round_active:
                     engine.hook.start_cast()
-
+                elif event.key == pygame.K_r:
+                    if not engine.round_active:
+                        engine.start_new_round()
         engine.update()
         engine.draw(screen, font)
 
